@@ -33,7 +33,7 @@ let cargarCabecero = () =>{
     document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
     document.getElementById("porcentaje").innerHTML = formatoPorcentaje(porcentajeEgreso);
     document.getElementById("ingresos").innerHTML = formatoMoneda(totalIngresos());
-    document.getElementById("egresos").innerHTML = formatoMoneda(totalIngresos());
+    document.getElementById("egresos").innerHTML = formatoMoneda(totalEgresos());
 }
 
 const formatoMoneda = (valor) =>{
@@ -113,7 +113,7 @@ const eliminarEgreso = (id) =>{
 const agregarDato = () => {
     console.log("La función agregarDato() se ha ejecutado correctamente.");
     
-// Selección del Form
+// Seleccionar elementos FORM
     let forma = document.forms["forma"];
     let tipo = forma["tipo"];
     let descripcion = forma["descripcion"];
@@ -123,7 +123,7 @@ const agregarDato = () => {
     console.log("Descripcion:", descripcion);
     console.log("Valor:", valor);
    
-//Verificar undefined
+//Verificar valor undefined
     if (descripcion && valor && descripcion.value !== "" && valor !== "") {
         if (tipo.value === "ingreso") {
             ingresos.push(new Ingresos(descripcion.value, valor));
@@ -142,10 +142,10 @@ const agregarDato = () => {
     
 }
 
-//Cargar Pág
+//Cargar Página
 function validarCarga() {
     console.log("El archivo JavaScript se cargó correctamente.");
 }
 
-//Llamar a la función validarCarga()
+//Evento onload
 window.onload = validarCarga;
